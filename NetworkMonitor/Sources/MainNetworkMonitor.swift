@@ -18,7 +18,7 @@ public final class MainNetworkMonitor: NetworkMonitor {
     public var isConnected: AnyPublisher<Bool, Never> {
         networkMonitor
             .publisher(queue: monitorQueue)
-            .map { $0 != .satisfied }
+            .map { $0 == .satisfied }
             .eraseToAnyPublisher()
     }
 }
